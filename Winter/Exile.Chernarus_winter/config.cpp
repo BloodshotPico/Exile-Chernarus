@@ -3578,8 +3578,8 @@ class CfgInteractionModels
 			"watertank_04_f",
 			
 			// Chernarus
-            "misc_wellpump.p3d",
-            "pumpa.p3d"
+			"misc_wellpump.p3d",
+			"pumpa.p3d"
 		};
 	};
 
@@ -3711,13 +3711,13 @@ class CfgInteractionModels
 			
 			// Chernarus
 			"fuel_tank_big.p3d",
-            "fuel_tank_stairs.p3d",
-            "a_fuelstation_feed.p3d",
-            "ind_fuelstation_feed_ep1.p3d",
-            "fuelstation_feed_pmc.p3d",
-            "ind_tanksmall2.p3d",
-            "ind_tanksmall.p3d",
-            "wagon_tanker.p3d"
+			"fuel_tank_stairs.p3d",
+			"a_fuelstation_feed.p3d",
+			"ind_fuelstation_feed_ep1.p3d",
+			"fuelstation_feed_pmc.p3d",
+			"ind_tanksmall2.p3d",
+			"ind_tanksmall.p3d",
+			"wagon_tanker.p3d"
 		};	
 	};
 };
