@@ -3575,7 +3575,11 @@ class CfgInteractionModels
 			"watertank_01_f",
 			"watertank_02_f",
 			"watertank_03_f",
-			"watertank_04_f"
+			"watertank_04_f",
+			
+			// Chernarus
+            "misc_wellpump.p3d",
+            "pumpa.p3d"
 		};
 	};
 
@@ -3700,9 +3704,20 @@ class CfgInteractionModels
 			"metalbarrel_f.p3d",
 			"flexibletank_01_f.p3d",
 			"fs_feed_f.p3d",
+			
 			//Tanoa
 			"fuelstation_01_pump_f.p3d",
-			"fuelstation_02_pump_f.p3d"
+			"fuelstation_02_pump_f.p3d",
+			
+			// Chernarus
+			"fuel_tank_big.p3d",
+            "fuel_tank_stairs.p3d",
+            "a_fuelstation_feed.p3d",
+            "ind_fuelstation_feed_ep1.p3d",
+            "fuelstation_feed_pmc.p3d",
+            "ind_tanksmall2.p3d",
+            "ind_tanksmall.p3d",
+            "wagon_tanker.p3d"
 		};	
 	};
 };
