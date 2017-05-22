@@ -1,4 +1,3 @@
-
 /**
  * ExileServer_system_trading_network_purchaseVehicleRequest
  *
@@ -12,11 +11,12 @@
  * Changes by Xine (Untriel) idea from krwtt and posted by BetterDeadThanZed
  */
  
-private["_sessionID","_parameters","_vehicleClass","_pinCode","_playerObject","_salesPrice","_playerMoney","_position","_vehicleObject","_logging","_traderLog","_responseCode"];
+private["_sessionID","_parameters","_vehicleClass","_pinCode","_playerObject","_useInventory","_salesPrice","_playerMoney","_position","_vehicleObject","_logging","_traderLog","_responseCode"];
 _sessionID = _this select 0;
 _parameters = _this select 1;
 _vehicleClass = _parameters select 0;
 _pinCode = _parameters select 1;
+_useInventory = _parameters select 2;
 try 
 {
 	_playerObject = _sessionID call ExileServer_system_session_getPlayerObject;
@@ -50,6 +50,31 @@ try
 	if !((count _pinCode) isEqualTo 4) then
 	{
 		throw 11;
+	};
+	
+	if (_useInventory) then
+	{
+		_check = [ExileTraderInventory,[_vehicleClass, false]] call ExileClient_util_dictionary_get;
+		if (_check isEqualType false) then
+		{
+			throw 15;
+		};
+		if ((_check - 1) < 0) then
+		{
+			throw 16;
+		};
+		if ((_check - 1) < 1) then
+		{
+			ExileTraderInventory =
+			[ExileTraderInventory,[_vehicleClass]] call ExileClient_util_dictionary_remove;
+		}
+		else
+		{
+			ExileTraderInventory =
+			[ExileTraderInventory,[_vehicleClass, _check - 1]] call ExileClient_util_dictionary_set;
+		};
+		["updateTraderInventoryResponse",[ExileTraderInventory]] call ExileServer_system_network_send_broadcast;
+		format["updateItemStock:%1:%2",-1, _vehicleClass] call ExileServer_system_database_query_fireAndForget;
 	};
 
 	_spawnObject 	= "Land_HelipadEmpty_F"; // the object you want to use for spawning, can't be a simple object
